@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CarResponseDtoTest {
 
     @Test
-    public void lombok_Test() {
+    public void responseDto_Test() {
 
         String name = "car";
         int amount = 1000;

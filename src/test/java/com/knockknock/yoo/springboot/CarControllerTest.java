@@ -11,11 +11,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
+
+import static org.hamcrest.Matchers.is;
+
 import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(CarController.class)
@@ -35,6 +37,26 @@ public class CarControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string("bmw"))
                 .andDo(print());
+    }
+
+    @Test
+    public void getCarResponseDto_test() throws Exception {
+
+        String name = "car";
+        int amount = 1000;
+
+        mockMvc.perform(get("/brand/dto")
+                        .param("name", name)
+                        // Parameter needs to be converted to String
+                        .param("amount", String.valueOf(amount)))
+                    .andExpect(status().isOk())
+                    // Search a field by $ indicator
+                    .andExpect(jsonPath("$.name", is(name)))
+                    .andExpect(jsonPath("$.amount", is(amount)));
+
+
+
+
     }
 
 
