@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@NoArgsConstructor
+//@NoArgsConstructor
 public class Posts {
 
     @Id
@@ -21,7 +21,11 @@ public class Posts {
 
     private String author;
 
-    @Builder
+    public Posts() {
+
+    }
+
+//    @Builder
     public Posts(String title, String content, String author) {
         this.title = title;
         this.content = content;
