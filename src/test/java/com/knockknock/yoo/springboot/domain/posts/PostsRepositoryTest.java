@@ -28,15 +28,13 @@ public class PostsRepositoryTest {
         String title = "Tesla";
         String content = "S3";
 
-//        Lombok Error
-//        postsRepository.save(Posts.builder()
-//                            .title(title)
-//                            .content(content)
-//                            .author("iheaven0129@gmail.com")
-//                            .build());
+        postsRepository.save(Posts.builder()
+                            .title(title)
+                            .content(content)
+                            .author("iheaven0129@gmail.com")
+                            .build());
 
         postsRepository.save(new Posts(title, content, "iheaven0129@gmail.com"));
-
         List<Posts> postsList = postsRepository.findAll();
 
         Posts posts = postsList.get(0);

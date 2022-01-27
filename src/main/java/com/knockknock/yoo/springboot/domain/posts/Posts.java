@@ -1,12 +1,13 @@
 package com.knockknock.yoo.springboot.domain.posts;
 
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
-//@NoArgsConstructor
+@Getter
 public class Posts {
 
     @Id
@@ -25,27 +26,10 @@ public class Posts {
 
     }
 
-//    @Builder
+    @Builder
     public Posts(String title, String content, String author) {
         this.title = title;
         this.content = content;
         this.author = author;
-    }
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public String getAuthor() {
-        return author;
     }
 }
