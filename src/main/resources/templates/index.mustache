@@ -14,8 +14,31 @@
                 <a href="/posts/save" role="button" class="btn btn-primary">Register</a>
             </div>
         </div>
-    </div>
+
+    <br>
+    <table class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+            <tr>
+                <th>No</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Last Modified Date</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            {{#posts}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{title}}</td>
+                <td>{{author}}</td>
+                <td>{{modifiedDate}}</td>
+            </tr>
+            {{/posts}}
+        </tbody>
+    </table>
     {{>layout/footer}}
+    </div>
+
 </body>
 
 </html>
