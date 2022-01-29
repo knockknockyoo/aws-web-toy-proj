@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -32,6 +34,13 @@ public class PostService {
         Posts entity = postsRepository.findOne(id);
         if (entity.equals(null)) throw new IllegalArgumentException("no post found id="+ id);
         return new PostsResponseDto(entity);
+    }
 
+    // TODO readonly available?
+    @Transactional
+    public List<PostsResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream()
+                .map(PostsResponseDto::new)
+                .collect(Collectors.toList());
     }
 }

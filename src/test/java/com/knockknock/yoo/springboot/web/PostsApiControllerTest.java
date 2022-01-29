@@ -1,4 +1,4 @@
-package com.knockknock.yoo.springboot;
+package com.knockknock.yoo.springboot.web;
 
 import com.knockknock.yoo.springboot.domain.posts.Posts;
 import com.knockknock.yoo.springboot.domain.posts.PostsRepository;
