@@ -23,16 +23,14 @@ public class PostService {
 
     @Transactional
     public Long update(Long id, PostsUpdateRequestDto requestDto) {
-        Posts entity = postsRepository.findOne(id);
-        if (entity.equals(null)) throw new IllegalArgumentException("no post found id="+ id);
+        Posts entity = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("not found post id=" + id));
         entity.update(requestDto.getTitle(), requestDto.getContent());
         return id;
     }
 
     @Transactional
     public PostsResponseDto findById(Long id) {
-        Posts entity = postsRepository.findOne(id);
-        if (entity.equals(null)) throw new IllegalArgumentException("no post found id="+ id);
+        Posts entity = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("not found post id="+ id));
         return new PostsResponseDto(entity);
     }
 
