@@ -43,6 +43,9 @@ dependencies {
     compile("org.projectlombok:lombok")
     runtime('com.h2database:h2')
     compileOnly('org.projectlombok:lombok')
+    compile("org.thymeleaf:thymeleaf-spring4")
+    compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-client:2.4.0")
     testCompile('org.springframework.boot:spring-boot-starter-test')
     // If Lombok annotation is not working
     annotationProcessor('org.projectlombok:lombok')
