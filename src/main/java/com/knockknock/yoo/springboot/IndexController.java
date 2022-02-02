@@ -1,5 +1,6 @@
 package com.knockknock.yoo.springboot;
 
+import com.knockknock.yoo.springboot.config.auth.LoginUser;
 import com.knockknock.yoo.springboot.config.auth.SessionUser;
 import com.knockknock.yoo.springboot.domain.posts.PostService;
 import lombok.RequiredArgsConstructor;
@@ -14,14 +15,14 @@ import javax.servlet.http.HttpSession;
 public class IndexController {
 
     private final PostService postService;
-    private final HttpSession httpSession;
+    // private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model)
+    public String index(Model model, @LoginUser SessionUser user)
     {
         model.addAttribute("posts", postService.findAllDesc());
-
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+        // User Annotation Remove Session Codes
+        // SessionUser user = (SessionUser) httpSession.getAttribute("user");
         if (user !=null) model.addAttribute("userName", user.getName());
 
         return "index";

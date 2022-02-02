@@ -1,5 +1,6 @@
 package com.knockknock.yoo.springboot.config.auth;
 
+import com.knockknock.yoo.springboot.contstants.Constants;
 import com.knockknock.yoo.springboot.domain.user.User;
 import com.knockknock.yoo.springboot.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -38,7 +39,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
 
         User user = saveOrUpdate(attributes);
-        httpSession.setAttribute("user", new SessionUser(user));
+        httpSession.setAttribute(Constants.Session.USER, new SessionUser(user));
 
         return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),
                                                             attributes.getAttributes(),
