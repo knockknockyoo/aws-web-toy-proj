@@ -1,5 +1,6 @@
 package com.knockknock.yoo.springboot.config.auth;
 
+import com.knockknock.yoo.springboot.config.auth.dto.SessionUser;
 import com.knockknock.yoo.springboot.contstants.Constants;
 import com.knockknock.yoo.springboot.domain.user.User;
 import com.knockknock.yoo.springboot.domain.user.UserRepository;

@@ -1,5 +1,6 @@
 package com.knockknock.yoo.springboot.config.auth;
 
+import com.knockknock.yoo.springboot.config.auth.dto.SessionUser;
 import com.knockknock.yoo.springboot.contstants.Constants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.MethodParameter;
@@ -21,7 +22,7 @@ public class LoginUserArgumentResolver implements HandlerMethodArgumentResolver 
     public boolean supportsParameter(MethodParameter parameter) {
 
         boolean isLoginUserAnnotation = parameter.getParameterAnnotation(LoginUser.class) != null;
-        boolean isUserClass = SessionUser.class.equals(parameter.getParameter());
+        boolean isUserClass = SessionUser.class.equals(parameter.getParameterType());
         return isLoginUserAnnotation && isUserClass;
     }
 

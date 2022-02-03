@@ -1,4 +1,4 @@
-package com.knockknock.yoo.springboot.config.auth;
+package com.knockknock.yoo.springboot.config.auth.dto;
 
 import com.knockknock.yoo.springboot.domain.user.User;
 import lombok.Getter;
